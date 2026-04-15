@@ -161,8 +161,8 @@ server <- function(input, output, session) {
     sf_name <- Sys.getenv("SNOWFLAKE_INTEGRATION_NAME")
     db_name <- Sys.getenv("DATABRICKS_INTEGRATION_NAME")
 
-    sf_assoc <- Filter(function(a) a$name == sf_name, associations)
-    db_assoc <- Filter(function(a) a$name == db_name, associations)
+    sf_assoc <- Filter(function(a) a$oauth_integration_name == sf_name, associations)                                                                          
+    db_assoc <- Filter(function(a) a$oauth_integration_name == db_name, associations)   
 
     if (length(sf_assoc) == 0 || length(db_assoc) == 0) {
       showNotification(
