@@ -112,7 +112,7 @@ server <- function(input, output, session) {
 
     # Discover integration by name
     integration_name <- Sys.getenv("DATABRICKS_INTEGRATION_NAME")
-    db_assoc <- Filter(function(a) a$name == integration_name, associations)
+    db_assoc <- Filter(function(a) a$oauth_integration_name == db_name, associations) 
 
     if (length(db_assoc) == 0) {
       showNotification(
