@@ -96,10 +96,10 @@ server <- function(input, output, session) {
     associations <- connectapi::get_associations(current_content)
 
     # Discover integration by name
-     showNotification(
-    paste("Associations:", paste(sapply(associations, function(a) a$name), collapse = ", ")),
-    type = "message", duration = 30                                                                                                                                              
-  )                                
+    showNotification(                                                                                                                                                              
+      paste("Fields:", paste(names(associations[[1]]), collapse = ", ")),
+      type = "message", duration = 30                                                                                                                                              
+    )             
            
     
     integration_name <- Sys.getenv("SNOWFLAKE_INTEGRATION_NAME")
